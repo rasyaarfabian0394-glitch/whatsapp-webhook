@@ -4,9 +4,9 @@ $verify_token = "hanastore_token";
 
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 
-    $mode = $_GET['hub_mode'] ?? '';
-    $token = $_GET['hub_verify_token'] ?? '';
-    $challenge = $_GET['hub_challenge'] ?? '';
+    $mode = $_GET['hub.mode'] ?? '';
+    $token = $_GET['hub.verify_token'] ?? '';
+    $challenge = $_GET['hub.challenge'] ?? '';
 
     if ($mode === "subscribe" && $token === $verify_token) {
         echo $challenge;
