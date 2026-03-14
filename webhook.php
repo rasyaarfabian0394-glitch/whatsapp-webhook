@@ -15,8 +15,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 }
 
 $input = file_get_contents("php://input");
+$data = json_decode($input, true);
+
 file_put_contents("log.txt", $input.PHP_EOL, FILE_APPEND);
 
-echo "EVENT_RECEIVED";
+if(isset($data['entry'][0]['changes'][0]['value']['messages'][0]['text']['body'])){
+    
+    $message = $data['entry'][0]['changes'][0]['value']['messages'][0]['text']['body'];
+    $from = $data['entry'][0]['changes'][0]['value']['messages'][0]['from'];
 
-?>
+    file_put_contents("log.txt", "Pesan dari $from : $message".PHP_EOL, FILE_APPEND);
+}
+
+echo "EVENT_RECEIVED";
