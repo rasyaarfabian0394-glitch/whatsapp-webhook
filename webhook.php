@@ -30,6 +30,9 @@ if(isset($data['entry'][0]['changes'][0]['value']['messages'][0]['text']['body']
     $message = $data['entry'][0]['changes'][0]['value']['messages'][0]['text']['body'];
     $from = $data['entry'][0]['changes'][0]['value']['messages'][0]['from'];
 
+    // ✅ SIMPAN NOMOR DI SINI
+file_put_contents("users.txt", $from.PHP_EOL, FILE_APPEND);
+
     $message = strtolower($message);
 
 if ($message == "halo") {
