@@ -2,32 +2,60 @@
 
 $verify_token = "hanastore_token";
 
+// ================== VERIFIKASI WEBHOOK ==================
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 
     $mode = $_GET['hub_mode'] ?? $_GET['hub.mode'] ?? '';
-    $token = $_GET['hub_verify_token'] ?? $_GET['hub.verify_token'] ?? '';
+    $token_verify = $_GET['hub_verify_token'] ?? $_GET['hub.verify_token'] ?? '';
     $challenge = $_GET['hub_challenge'] ?? $_GET['hub.challenge'] ?? '';
 
-    if ($mode === "subscribe" && $token === $verify_token) {
+    if ($mode === "subscribe" && $token_verify === $verify_token) {
         echo $challenge;
-        exit;
-    } else {
-        echo "TOKEN SALAH";
         exit;
     }
 }
 
+// ================== TERIMA DATA ==================
 $input = file_get_contents("php://input");
 $data = json_decode($input, true);
 
 file_put_contents("log.txt", $input.PHP_EOL, FILE_APPEND);
+
+// ================== AUTO REPLY ==================
+$token = "EAALO9Azi2DoBQZCkTt0k2k7ds80mavfV8mz9WFsl0L0slecnCmVXAVbt9dQqoAJgxV7gYLHqYqVUTWx8OIk29ZC5P8thAAToZC9EbVrZCMGfk8Dt9uf8CYF6CwnELcumbdSeOpIjayCN1Okpfh2XoSwXldFDbBgJ5ZAydPj58TUnajlm6SQsaCZAlw2tma7O6YBQFRmnlSfUmdi9ivJHLt2BwMq9FLXZAwhXiFo0I48ZC1sZCSYAA4VnAArVZCedPGuAZBZCxzy2h6byZCr9rtZCIapAmfNhyNv6nRpe5V7QZDZD";
+$phone_number_id = "1070675906121436";
 
 if(isset($data['entry'][0]['changes'][0]['value']['messages'][0]['text']['body'])){
     
     $message = $data['entry'][0]['changes'][0]['value']['messages'][0]['text']['body'];
     $from = $data['entry'][0]['changes'][0]['value']['messages'][0]['from'];
 
-    file_put_contents("log.txt", "Pesan dari $from : $message".PHP_EOL, FILE_APPEND);
+    $reply = "Halo 👋, kamu bilang: " . $message;
+
+    $url = "https://graph.facebook.com/v18.0/$phone_number_id/messages";
+
+    $data_post = [
+        "messaging_product" => "whatsapp",
+        "to" => $from,
+        "type" => "text",
+        "text" => [
+            "body" => $reply
+        ]
+    ];
+
+    $headers = [
+        "Authorization: Bearer $token",
+        "Content-Type: application/json"
+    ];
+
+    $ch = curl_init($url);
+    curl_setopt($ch, CURLOPT_POST, true);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data_post));
+    curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+    curl_exec($ch);
+    curl_close($ch);
 }
 
 echo "EVENT_RECEIVED";
