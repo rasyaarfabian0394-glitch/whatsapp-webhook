@@ -54,8 +54,10 @@ if(isset($data['entry'][0]['changes'][0]['value']['messages'][0]['text']['body']
     curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
-    curl_exec($ch);
+    $response = curl_exec($ch);
     curl_close($ch);
+file_put_contents("log.txt", "RESPONSE: ".$response.PHP_EOL, FILE_APPEND);
+    
 }
 
 echo "EVENT_RECEIVED";
