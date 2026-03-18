@@ -19,7 +19,27 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 $input = file_get_contents("php://input");
 $data = json_decode($input, true);
 
+// simpan log (WAJIB)
 file_put_contents("log.txt", $input.PHP_EOL, FILE_APPEND);
+
+if(isset($data['entry'][0]['changes'][0]['value']['messages'][0]['text']['body'])){
+
+    $message = $data['entry'][0]['changes'][0]['value']['messages'][0]['text']['body'];
+    $from = $data['entry'][0]['changes'][0]['value']['messages'][0]['from'];
+
+    // ✅ cek kalau file belum ada
+    if (!file_exists("users.txt")) {
+        file_put_contents("users.txt", "");
+    }
+
+    $users = file("users.txt", FILE_IGNORE_NEW_LINES);
+
+    // ✅ simpan user (ANTI DUPLIKAT)
+    if (!in_array($from, $users)) {
+        file_put_contents("users.txt", $from.PHP_EOL, FILE_APPEND);
+    }
+
+}
 
 // ================== AUTO REPLY ==================
 $token = "EAALO9Azi2DoBQZCkTt0k2k7ds80mavfV8mz9WFsl0L0slecnCmVXAVbt9dQqoAJgxV7gYLHqYqVUTWx8OIk29ZC5P8thAAToZC9EbVrZCMGfk8Dt9uf8CYF6CwnELcumbdSeOpIjayCN1Okpfh2XoSwXldFDbBgJ5ZAydPj58TUnajlm6SQsaCZAlw2tma7O6YBQFRmnlSfUmdi9ivJHLt2BwMq9FLXZAwhXiFo0I48ZC1sZCSYAA4VnAArVZCedPGuAZBZCxzy2h6byZCr9rtZCIapAmfNhyNv6nRpe5V7QZDZD";
