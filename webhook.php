@@ -30,7 +30,23 @@ if(isset($data['entry'][0]['changes'][0]['value']['messages'][0]['text']['body']
     $message = $data['entry'][0]['changes'][0]['value']['messages'][0]['text']['body'];
     $from = $data['entry'][0]['changes'][0]['value']['messages'][0]['from'];
 
-    $reply = "Halo 👋, kamu bilang: " . $message;
+    $message = strtolower($message);
+
+if ($message == "halo") {
+    $reply = "Halo 👋 Selamat datang di Hana Store\n\nSilakan pilih:\n1. Lihat Produk\n2. Harga\n3. Admin";
+} 
+elseif ($message == "1") {
+    $reply = "📦 Produk kami:\n- BajuTagor\n- CelanaBagas\n- SepatuHanafi";
+}
+elseif ($message == "2") {
+    $reply = "💰 Harga mulai dari 50jt ya kak 😊";
+}
+elseif ($message == "3") {
+    $reply = "👤 Hubungi admin: 6282221653103";
+}
+else {
+    $reply = "Ketik *Halo* untuk melihat menu 😊";
+}
 
     $url = "https://graph.facebook.com/v18.0/$phone_number_id/messages";
 
