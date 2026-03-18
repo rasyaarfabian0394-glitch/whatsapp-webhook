@@ -1,12 +1,12 @@
 <?php
 
-$token = "ACCESS_TOKEN_KAMU";
+$token = "EAALO9Azi2DoBQZCkTt0k2k7ds80mavfV8mz9WFsl0L0slecnCmVXAVbt9dQqoAJgxV7gYLHqYqVUTWx8OIk29ZC5P8thAAToZC9EbVrZCMGfk8Dt9uf8CYF6CwnELcumbdSeOpIjayCN1Okpfh2XoSwXldFDbBgJ5ZAydPj58TUnajlm6SQsaCZAlw2tma7O6YBQFRmnlSfUmdi9ivJHLt2BwMq9FLXZAwhXiFo0I48ZC1sZCSYAA4VnAArVZCedPGuAZBZCxzy2h6byZCr9rtZCIapAmfNhyNv6nRpe5V7QZDZD";
 $phone_number_id = "1070675906121436";
 
 $numbers = [
 "6282221653103",
-"6281373735966",
-"628388623137"
+"6285143296561",
+"628388623137"   
 ];
 
 $message = "Halo 👋 ini pesan promosi dari website saya.";
@@ -18,9 +18,12 @@ $url = "https://graph.facebook.com/v18.0/$phone_number_id/messages";
 $data = [
     "messaging_product" => "whatsapp",
     "to" => $to,
-    "type" => "text",
-    "text" => [
-        "body" => $message
+    "type" => "template",
+    "template" => [
+        "name" => "promo_hana",
+        "language" => [
+            "code" => "id"
+        ]
     ]
 ];
 
