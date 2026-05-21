@@ -4,8 +4,8 @@ $token = "EAALO9Azi2DoBQZCkTt0k2k7ds80mavfV8mz9WFsl0L0slecnCmVXAVbt9dQqoAJgxV7gY
 $phone_number_id = "1070675906121436";
 
 $numbers = [
-"6282221653103",
-"6285143296561",
+"6282273762086",
+"6281534365435",
 "628388623137"   
 ];
 
