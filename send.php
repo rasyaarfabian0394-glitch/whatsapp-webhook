@@ -1,26 +1,22 @@
 <?php
 
-$token = "EAALO9Azi2DoBQZCkTt0k2k7ds80mavfV8mz9WFsl0L0slecnCmVXAVbt9dQqoAJgxV7gYLHqYqVUTWx8OIk29ZC5P8thAAToZC9EbVrZCMGfk8Dt9uf8CYF6CwnELcumbdSeOpIjayCN1Okpfh2XoSwXldFDbBgJ5ZAydPj58TUnajlm6SQsaCZAlw2tma7O6YBQFRmnlSfUmdi9ivJHLt2BwMq9FLXZAwhXiFo0I48ZC1sZCSYAA4VnAArVZCedPGuAZBZCxzy2h6byZCr9rtZCIapAmfNhyNv6nRpe5V7QZDZD";
-$phone_number_id = "1070675906121436";
+$token = "EAAO3ZCCEWa9MBSwsSIOnqHYFabwS0jc0oaUxnPZChtuw3csnlPnjMiAZAcZCEHo8jhqNciQZC7xzrgZAndKfHIK4Ai1IMU1xSsbZCIAaZCmB8CMWNcRTXsgshuuLqBGOkyIjemuLv81XFXt7744wv1UKIO2L0r9xqgktK1GM0N3SCCFfiYoDEZCbbif48rpKuKPGhtBxq8jnurUbEnQy6L5Y6imZA9CJNUQinUCNOSIfnh2lVugKvWrpRmMysiZAXdf7qVxJfHjzn7vymWOGcbddPSzZCjBajWThAURa5mkZD";
+$phone_number_id = "1306398302550925";
 
-$numbers = [
-"6282273762086",
-"6281534365435",
-"628388623137"   
-];
+$numbers = file('kontak.txt', FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
 
 $message = "Halo 👋 ini pesan promosi dari website saya.";
 
 foreach ($numbers as $to) {
 
-$url = "https://graph.facebook.com/v18.0/$phone_number_id/messages";
+$url = "https://graph.facebook.com/v21.0/$phone_number_id/messages";
 
 $data = [
     "messaging_product" => "whatsapp",
     "to" => $to,
     "type" => "template",
     "template" => [
-        "name" => "promo_hana",
+        "name" => "dui_store",
         "language" => [
             "code" => "id"
         ]
@@ -28,7 +24,7 @@ $data = [
 ];
 
 $headers = [
-"Authorization: Bearer $token",
+"Authorization: Bearer" . $token,
 "Content-Type: application/json"
 ];
 
