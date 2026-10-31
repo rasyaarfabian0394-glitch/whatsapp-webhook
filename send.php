@@ -3,15 +3,15 @@
 $token = "EAAO3ZCCEWa9MBSxZCL8ciWJXZCGDZAdDbKKyTCj8My3AukpqfhBdz3QTZCGyze9U0lWvfGMxcmFHmz3xjm0X8cdq4rUAyX65mMKQKXkqxOKErTuP9gr3Jd5AtygR9DzQuXw727YucQcbsmWnlgVFVZAAWwE0ZCp0aAEhpU0lnZBbgYFQZCbRveZAX4PMFnZC7qvNhnMvfc6YT94L9UoE3NTyUhi04ZAmxWH8x97mtiwutQ0ci7mSX4GHcaX1FIUgeVVfYBzXEdTOWbDH0UcGjDaozoQoPtZCSZCLq4ZBbpIH5P2";
 $phone_number_id = "1306398302550925";
 
-// Pastikan file kontak.txt ada dan berisi nomor tujuan (contoh: 628xxxxxxxxxx)
-if (!file_exists('kontak.txt')) {
-    die("File kontak.txt tidak ditemukan!");
+// Memuat daftar nomor dari file kontak.php (bukan .txt)
+$numbers = require 'kontak.php';
+
+// Pastikan $numbers adalah array yang valid
+if (!is_array($numbers) || empty($numbers)) {
+    die("Daftar kontak kosong atau file kontak.php tidak valid!");
 }
 
-$numbers = file('kontak.txt', FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
-
 foreach ($numbers as $to) {
-    // Bersihkan nomor dari spasi atau karakter tak terlihat jika ada
     $to = trim($to);
     if (empty($to)) continue;
 
@@ -30,7 +30,7 @@ foreach ($numbers as $to) {
     ];
 
     $headers = [
-        "Authorization: Bearer " . $token, // <-- Spasi sudah ditambahkan di sini
+        "Authorization: Bearer " . $token,
         "Content-Type: application/json"
     ];
 
@@ -43,7 +43,6 @@ foreach ($numbers as $to) {
     $response = curl_exec($ch);
     curl_close($ch);
 
-    // Menampilkan respons untuk debugging per nomor
     echo "Kirim ke $to -> Response: $response <br>";
 }
 
