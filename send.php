@@ -28,7 +28,7 @@ if (!is_array($numbers) || empty($numbers)) {
 <body>
 <div class="container">
     <h2>🚀 Laporan Broadcast WhatsApp</h2>
-    <p>Memproses pengiriman pesan template <b>dui_store</b>...</p>
+    <p>Memproses pengiriman pesan template <b>promo_topup_game</b>...</p>
     <hr style="border:0; border-top:1px solid #eee; margin:20px 0;">
 
     <?php
@@ -41,13 +41,13 @@ if (!is_array($numbers) || empty($numbers)) {
 
         $url = "https://graph.facebook.com/v21.0/$phone_number_id/messages";
 
-        // Struktur data dengan parameter template untuk mencegah error parameter
+        // Struktur data disesuaikan dengan 3 variabel pada template promo_topup_game
         $data = [
             "messaging_product" => "whatsapp",
             "to" => $to,
             "type" => "template",
             "template" => [
-                "name" => "dui_store",
+                "name" => "promo_topup_game",
                 "language" => [
                     "code" => "id"
                 ],
@@ -55,8 +55,9 @@ if (!is_array($numbers) || empty($numbers)) {
                     [
                         "type" => "body",
                         "parameters" => [
-                            ["type" => "text", "text" => "Kak"],         // Parameter {{1}}
-                            ["type" => "text", "text" => "Hana Store"]   // Parameter {{2}}
+                            ["type" => "text", "text" => "di INDO168"],  // Parameter {{1}}
+                            ["type" => "text", "text" => "220722"],      // Parameter {{2}} (Contoh nilai/kode voucher)
+                            ["type" => "text", "text" => "30 November"]  // Parameter {{3}} (Contoh batas waktu promo)
                         ]
                     ]
                 ]
@@ -90,7 +91,7 @@ if (!is_array($numbers) || empty($numbers)) {
     }
     ?>
 
-    <div class="summary">
+<div class="summary">
         📊 Ringkasan: Berhasil terkirim: <?= $success_count ?> | Gagal: <?= $failed_count ?>
     </div>
 </div>
