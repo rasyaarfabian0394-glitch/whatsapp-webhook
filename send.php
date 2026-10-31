@@ -1,6 +1,6 @@
 <?php
 // Token dan Konfigurasi
-$token = "EAAO3ZCCEWa9MBS2iSZAEcNExZBpqzvf0ZA7CnGmkj0TYxVriu6os9hWtHZCWZAvyz3jOC6tE7aeO9in7FstOrUpktVkoNbTaZA5MqRr6bkh4Vx1kl5kcZB0V89vHHnHkcQZA0uLiUCqaWgZAv3gAbkWqwGt0K9daTbOazftScSVs8v7xPHo7ieMKyQVwMCaiJZAlkqw7ZCAnov0A4c4Q8ES5wEs4xS8cAWeRdfWuPwM93Atz6sgNGqsfl7yiCLA7qlQt5XXAum49d6eqQOqtGx4ySWhwrPY8NnLVN8VKYAZDZD";
+$token = "";
 $phone_number_id = "1306398302550925";
 
 // Memuat daftar nomor dari file kontak.php
