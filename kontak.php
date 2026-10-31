@@ -55,8 +55,8 @@ return [
     "6283119796178",
     "6282373669091",
     "6285156871909",
-     "6285136263050",
+    "6285136263050",
     "6283811920079",
-    "6283871088527"
+    "6283871088527",
     // Anda bisa tambahkan nomor-nomor lainnya di sini dipisahkan dengan koma
 ];
