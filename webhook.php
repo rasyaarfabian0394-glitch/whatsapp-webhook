@@ -24,7 +24,7 @@ file_put_contents("log.txt", $input.PHP_EOL, FILE_APPEND);
 
 // ================== TOKEN ==================
 $token = "EAAZB6ZB6tMo9sBS56ZALFDZCMxFMVHEj8ZAbG5uHSOvWS6A27hZA8iBQBXm3K439mRbIKCrT4QuM6EHHnIcraYzaWYvGCTMlX9DImE2vmai40eMhsPmww73cMgT9ErkJVXzSBISWdiUjYNH9ktFuUvZC4WUC8Gt3tZCqYgOndur7EM3lcRGoKZCNgFzAW4ghXOS7Eqn9i1ZBTloFUdK9Sp2T0z8XhePjSg1ZBzpaPcdPsEItDQiO4ZB8Fcb7uavZB2wEwZC1qgqEMzhwZCuZCmqlwPrxvyTKH2kfdAZDZD";
-$phone_number_id = "1070675906121436";
+$phone_number_id = "1306398302550925";
 
 // ================== PROSES PESAN ==================
 if(isset($data['entry'][0]['changes'][0]['value']['messages'][0]['text']['body'])){
