@@ -3,5 +3,6 @@
 return [
     "6285136263050",
     "6282268404507",
+    "6285717388386",
     // Anda bisa tambahkan nomor-nomor lainnya di sini dipisahkan dengan koma
 ];
