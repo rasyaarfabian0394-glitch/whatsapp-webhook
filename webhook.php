@@ -23,8 +23,8 @@ $data = json_decode($input, true);
 file_put_contents("log.txt", $input.PHP_EOL, FILE_APPEND);
 
 // ================== TOKEN ==================
-$token = "EAAO3ZCCEWa9MBS3GiOKDE44laXZAb3jWVpsvnobfuRjrYPdDkN9c3zoTZAh6vZBmu3BZBZAcMKVjt1cZBYSGHsnYB7tyAcbudnd0Icxf1XJ6PMe0vlsy3N2eVjnxyI4590tyy1l1zw8ZC0wRPUwugs5EZA4K3CnkCQ5H0akWSPisukZClk6Dbz07IotS3nlvJKhnrKty9aBJZCZCCK1717NbgTfvNtB2zsNwGIV7gqSKypsCR9vutZC5SyGAuErBhVz9jLAwhPtkCTTz69vU2lNbhEPZCJ2A7coawX9tjDNwZDZD";
-$phone_number_id = "1479603721894698";
+$token = "EAAO3ZCCEWa9MBSxUAeGmJZAbuFEUdccjWgoux3JvofZAbq4HEqnQ1pzxVd0N8UEL2thD1Fva9I4JFx6z2DsYRP5FpkZB9ENKmVxi3IWJGcyjpcynRqg7VggZAhF0yAPnBnPtadZBLMmZAFZBEM0lzViZCUZBNQZAwoFf9XaYFJR4zj5ULTlvFNoCamKzJaRmTI5Fhx71eA672H4lIgNeu79paXymbXJ8cQVeOJR7KW9ZAWNh7gxBwbGxsglk4p10l0eeCtVlQEXeYDnqdkImVc1abBTSu447ZAFFWx5Whs8BP";
+$phone_number_id = "1306398302550925";
 
 // ================== PROSES PESAN ==================
 if(isset($data['entry'][0]['changes'][0]['value']['messages'][0]['text']['body'])){
