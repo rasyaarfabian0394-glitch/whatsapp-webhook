@@ -1,7 +1,7 @@
 [02/11/2026 19.10] Hana Store One: <?php
 // Token dan Konfigurasi
-$token = "EAAO3ZCCEWa9MBS84BFaCDHELcnqTyo5yfWFlbZCBHGnL4OX8XmdgLNXRrY33t8BrZAl93ZACHNyN5oUECUZC4T2jddPoLJ8X4fWqOZBLvXK38yJWawvzJUYMIXa2Qz6sTxLnsRyL7JZAdrh9nzTV8A5P2AwSIdF21vgVhYzjVqDS3GipxmYwA6Up4X5HGt8qHHKfZCOuckDfRO7LJZBMvgkGuAlvbkZAjdtRYEZCbMdUKySLj4qkl5K2c6LWSc0WsN6evaVQOvwMkk2OlZCYYGA6qKhHGU2CiZAfj2zEO5wZDZD";
-$phone_number_id = "1306398302550925";
+$token = "EAAO3ZCCEWa9MBS3GiOKDE44laXZAb3jWVpsvnobfuRjrYPdDkN9c3zoTZAh6vZBmu3BZBZAcMKVjt1cZBYSGHsnYB7tyAcbudnd0Icxf1XJ6PMe0vlsy3N2eVjnxyI4590tyy1l1zw8ZC0wRPUwugs5EZA4K3CnkCQ5H0akWSPisukZClk6Dbz07IotS3nlvJKhnrKty9aBJZCZCCK1717NbgTfvNtB2zsNwGIV7gqSKypsCR9vutZC5SyGAuErBhVz9jLAwhPtkCTTz69vU2lNbhEPZCJ2A7coawX9tjDNwZDZD";
+$phone_number_id = "1479603721894698";
 
 // Memuat daftar nomor dari file kontak.php
 $numbers = require 'kontak.php';
