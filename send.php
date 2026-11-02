@@ -1,6 +1,6 @@
 <?php
 // Token dan Konfigurasi
-$token = "EAAO3ZCCEWa9MBS9c5Ue2hMgTNZAVX1KLziCIJzyGeJezPiKXMHoYuXEap5CeqJ41w5sZCVdfZCTafHkt5crFzaWKAvW6KoFJiXfUiNsU9MVZC9n8yBcrgBbgGxRComEU51OMHUpmEv4UpsIOBcIxGtevmw3sgMtx9JoTM3fnnzhe6yF9RVjuTwFfkpVtXJ3kEwEjsjomM7RigBhOirElmcZBXQvNsGZCP4KKnMLvKSs2x28j9HdzBUasmBY60E0gZCbRVrLZBbpLh6w3o3FfuCBMgH3TR7iYAtXueaQZDZD";
+$token = "EAAO3ZCCEWa9MBS2kM22Pl1VQZB0NbZB08Bow6x0B1GjWSUChWkJhMLBldYrnessFwoySreMsqljHpEYMTJaZAcfFyDw6rywI0g1g1YAKZAzUDVvvECjI4tcxU6a8QleZBDgZAAIZCMuQa4XwUc23FwHmHNZCtmLhFX68mNwCimbImcEdV0tUQAyrlVHHKzDVaxbz0AkY1FXxZBNC3bLaZCHkZA65vSZBoFkxSRIwHoKHPWlTNHIUmvxyTyDuOxadLBDWdIJO12kV7QggBZAqKwDAB5F7euoVryKWUjeBybfgZDZD";
 $phone_number_id = "1306398302550925";
 
 // Memuat daftar nomor dari file kontak.php
@@ -22,7 +22,8 @@ if (!is_array($numbers) || empty($numbers)) {
         .log-item { padding: 12px 15px; margin-bottom: 10px; border-radius: 8px; font-size: 14px; border-left: 5px solid #ccc; background: #fafafa; }
         .success { border-left-color: #25d366; background: #e8f5e9; color: #1b5e20; }
         .error { border-left-color: #d32f2f; background: #ffebee; color: #c62828; }
-        .summary { margin-top: 20px; padding: 15px; background: #e0f2f1; border-radius: 8px; font-weight: bold; color: #004d40; }
+        .summary { margin-top: 20px; padding: 15px; background: #e0f2f1; border-radius: 8px; font-weight: bold; 
+color: #004d40; }
     </style>
 </head>
 <body>
@@ -41,7 +42,7 @@ if (!is_array($numbers) || empty($numbers)) {
 
         $url = "https://graph.facebook.com/v21.0/$phone_number_id/messages";
 
-        // Struktur data disesuaikan dengan 3 variabel pada template promo_topup_game
+        // Struktur data menggunakan template promo_topup_game
         $data = [
             "messaging_product" => "whatsapp",
             "to" => $to,
@@ -50,16 +51,6 @@ if (!is_array($numbers) || empty($numbers)) {
                 "name" => "promo_topup_game",
                 "language" => [
                     "code" => "id"
-                ],
-                "components" => [
-                    [
-                        "type" => "body",
-                        "parameters" => [
-                            ["type" => "text", "text" => "di INDO168"],  // Parameter {{1}}
-                            ["type" => "text", "text" => "220722"],      // Parameter {{2}} (Contoh nilai/kode voucher)
-                            ["type" => "text", "text" => "30 November"]  // Parameter {{3}} (Contoh batas waktu promo)
-                        ]
-                    ]
                 ]
             ]
         ];
@@ -91,7 +82,7 @@ if (!is_array($numbers) || empty($numbers)) {
     }
     ?>
 
-<div class="summary">
+    <div class="summary">
         📊 Ringkasan: Berhasil terkirim: <?= $success_count ?> | Gagal: <?= $failed_count ?>
     </div>
 </div>
