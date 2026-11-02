@@ -1,4 +1,4 @@
-<?php
+[02/11/2026 19.10] Hana Store One: <?php
 // Token dan Konfigurasi
 $token = "EAAO3ZCCEWa9MBS84BFaCDHELcnqTyo5yfWFlbZCBHGnL4OX8XmdgLNXRrY33t8BrZAl93ZACHNyN5oUECUZC4T2jddPoLJ8X4fWqOZBLvXK38yJWawvzJUYMIXa2Qz6sTxLnsRyL7JZAdrh9nzTV8A5P2AwSIdF21vgVhYzjVqDS3GipxmYwA6Up4X5HGt8qHHKfZCOuckDfRO7LJZBMvgkGuAlvbkZAjdtRYEZCbMdUKySLj4qkl5K2c6LWSc0WsN6evaVQOvwMkk2OlZCYYGA6qKhHGU2CiZAfj2zEO5wZDZD";
 $phone_number_id = "1306398302550925";
@@ -22,8 +22,7 @@ if (!is_array($numbers) || empty($numbers)) {
         .log-item { padding: 12px 15px; margin-bottom: 10px; border-radius: 8px; font-size: 14px; border-left: 5px solid #ccc; background: #fafafa; }
         .success { border-left-color: #25d366; background: #e8f5e9; color: #1b5e20; }
         .error { border-left-color: #d32f2f; background: #ffebee; color: #c62828; }
-        .summary { margin-top: 20px; padding: 15px; background: #e0f2f1; border-radius: 8px; font-weight: bold; 
-color: #004d40; }
+        .summary { margin-top: 20px; padding: 15px; background: #e0f2f1; border-radius: 8px; font-weight: bold; color: #004d40; }
     </style>
 </head>
 <body>
@@ -42,7 +41,7 @@ color: #004d40; }
 
         $url = "https://graph.facebook.com/v21.0/$phone_number_id/messages";
 
-        // Struktur data menggunakan template promo_topup_game
+        // Struktur data dengan 3 parameter yang dibutuhkan oleh template promo_topup_game
         $data = [
             "messaging_product" => "whatsapp",
             "to" => $to,
@@ -51,6 +50,16 @@ color: #004d40; }
                 "name" => "promo_topup_game",
                 "language" => [
                     "code" => "id"
+                ],
+                "components" => [
+                    [
+                        "type" => "body",
+                        "parameters" => [
+                            ["type" => "text", "text" => "IND0168"],       // Mengisi parameter {{1}}
+                            ["type" => "text", "text" => "220722"],      // Mengisi parameter {{2}}
+                            ["type" => "text", "text" => "https://bit.ly/npkindo168"] // Mengisi parameter {{3}}
+                        ]
+                    ]
                 ]
             ]
         ];
@@ -81,8 +90,7 @@ color: #004d40; }
         }
     }
     ?>
-
-    <div class="summary">
+[02/11/2026 19.10] Hana Store One: <div class="summary">
         📊 Ringkasan: Berhasil terkirim: <?= $success_count ?> | Gagal: <?= $failed_count ?>
     </div>
 </div>
