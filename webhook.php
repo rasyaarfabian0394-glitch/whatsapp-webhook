@@ -23,7 +23,7 @@ $data = json_decode($input, true);
 file_put_contents("log.txt", $input.PHP_EOL, FILE_APPEND);
 
 // ================== TOKEN ==================
-$token = "EAAO3ZCCEWa9MBS4tNxBDOZA9vR6GVh6mqAmkQo396Kjr4vak8nZBd2TdoKN7ltKWN0LIZBlaJ26RY4ZAVpQFDlGulbZApFhOmRZAWGvLHZBCUN4K2pbHsUMkB8jZCr3nFlD6l5YqtF8sfiv2hSrwuNN63DVZCK90yhxBBylbHyHcL1APpAAsO3OUq5CTcPnjtmTUyZCKqq8Srh9ctI0Ra5oOoobhPA2PZB5XkqvLK4XC4epaQwCRsZBlSjMgdRDYTqy5wHbU1AwaBQozcZApfKjqZAb19w3";
+$token = "EAAO3ZCCEWa9MBSys5qckWnJ3CxcmjeTz4lNfBiT9ZCZAGf28ueikYrZAEUoXZAhvxMLDNjkbZCDV7d6nKVhMPRnZBGKXkt2HWsZBUpo25vF7KtC8ycEUKwoStIfkpEs5UZC2VeHi8ZCOuBHCQaZC92mZAZCFtGzVqadobCLEZA0diTw1fku9SEnMg7o6ub2VHd4SOYUwIrUbVh62j0oxYoGNp5ckqBzKXeIKE5EcGzbeJSLf9Xk9RYOdgbcbCNGFoobebzQTQfHZA9Ioo9CWPS6zxAAD54v";
 $phone_number_id = "1306398302550925";
 
 // ================== PROSES PESAN ==================
